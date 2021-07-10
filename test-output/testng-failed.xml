@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Automation Practice Regression Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="com.qa.hubspot.listeners.ExtentReportListener"/>
+  </listeners>
+  <test name="Functional Regression Test">
+    <classes>
+      <class name="com.qa.hubspot.tests.LoginPageTest"/>
+      <class name="com.qa.hubspot.tests.HomePageTest"/>
+    </classes>
+  </test> <!-- Functional Regression Test -->
+  <test name="Functional Regression Test(failed)">
+    <classes>
+      <class name="com.qa.hubspot.tests.HomePageTest">
+        <methods>
+          <include name="verifyAccountPageHeaderTest"/>
+          <include name="tearDown"/>
+          <include name="verifyLoggedInUserName"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- com.qa.hubspot.tests.HomePageTest -->
+      <class name="com.qa.hubspot.tests.LoginPageTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="LoginTest"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qa.hubspot.tests.LoginPageTest -->
+    </classes>
+  </test> <!-- Functional Regression Test(failed) -->
+</suite> <!-- Failed suite [Automation Practice Regression Suite] -->
