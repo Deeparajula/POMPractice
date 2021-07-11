@@ -37,20 +37,25 @@ public class BasePage {
 		highlightElement = prop.getProperty("highlight").equals("yes") ? true : false;
 		optionsManager = new OptionsManager(prop);
 		
-		if(browserName.equals("Chrome")) {
+		if(browserName.equals("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			//driver = new ChromeDriver(optionsManager.getChromeOptions());
 			tldriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
+			System.out.println("browser name is chrome");
 		}
 		
-		else if(browserName.equals("Firefox")) {
+		else if(browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			//driver = new FirefoxDriver(optionsManager.getFirefoxOptions());
 			tldriver.set(new FirefoxDriver(optionsManager.getFirefoxOptions()));
-		} else if(browserName.equals("Safari")) {
+			System.out.println("browser name is firefox");
+		} 
+		
+		else if(browserName.equals("safari")) {
 			WebDriverManager.getInstance(SafariDriver.class).setup();
 			//driver = new SafariDriver();
 			tldriver.set(new SafariDriver());
+			System.out.println("browser name is safari");
 		} 
 		
 		else {
@@ -79,15 +84,15 @@ public class BasePage {
 			env = System.getProperty("env");
 			
 			if(env.equals("qa")) {
-				path = ".\\src\\main\\java\\com\\qa\\hubspot\\config\\qa.config.properties";
+				path = ".\\src\\main\\java\\com\\qa\\automationpractice\\config\\qa.config.properties";
 			} else if (env.equals("stg")) {
-				path = ".\\src\\main\\java\\com\\qa\\hubspot\\config\\stg.config.properties";
+				path = ".\\src\\main\\java\\com\\qa\\automationpractice\\config\\stg.config.properties";
 			}
 		} catch(Exception e) {
-			path = ".\\src\\main\\java\\com\\qa\\hubspot\\config\\config.properties";
+			path = ".\\src\\main\\java\\com\\qa\\automationpractice\\config\\config.properties";
 		}
 		
-		//String path = ".\\src\\main\\java\\com\\qa\\hubspot\\config\\config.properties";
+		//String path = ".\\src\\main\\java\\com\\qa\\automationpractice\\config\\config.properties";
 		try {
 			FileInputStream ip = new FileInputStream(path);
 			prop.load(ip); // loading the properties of config file to one object
@@ -111,7 +116,7 @@ public class BasePage {
 	public String getScreenshot() {
 		
 		File src = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		String path = System.getProperty("user.dir")+"\\screenshots" + System.currentTimeMillis() + ".png";
+		String path = System.getProperty("user.dir") + "\\screenshots/" + System.currentTimeMillis() + ".png";
 		File destination = new File(path);
 		
 		try {

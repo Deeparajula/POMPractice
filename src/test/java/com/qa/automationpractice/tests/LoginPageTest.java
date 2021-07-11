@@ -7,6 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.qa.automationpractice.base.BasePage;
@@ -23,11 +24,19 @@ public class LoginPageTest {
 	Credentials userCred;
 	
 	@BeforeTest(alwaysRun=true)
-	public void setUp() {
-		
+	@Parameters(value= {"browser"})
+	public void setUp(String browser) {
+		String browserName = null;
 		basePage = new BasePage();
 		prop = basePage.init_properties();
-		String browserName = prop.getProperty("browser");
+		
+		// to handle browser from Config file and TestNG xml
+		if(browser.equals(null)) {
+			browserName = prop.getProperty("browser");
+		} else {
+			browserName = browser;
+		}
+		
 		driver = basePage.init_driver(browserName);
 		driver.get(prop.getProperty("url"));
 		

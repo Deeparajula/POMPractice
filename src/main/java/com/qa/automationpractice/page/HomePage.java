@@ -15,7 +15,7 @@ public class HomePage extends BasePage{
 	
     By pageHeader = By.xpath(".//h1[contains(text(),\"My account\")]");
 	By siteLogo = By.xpath(".//img[@class='logo img-responsive']");
-	By loggedInUserName = By.xpath(".//a[@title='View my customer account']");
+	By loggedInUserName = By.xpath(".//a[@title='View my customer accounts']");
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;

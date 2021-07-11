@@ -3,8 +3,8 @@
 <suite name="Automation Practice Regression Suite">
  
  	<listeners>
-	  		<listener class-name = "com.qa.hubspot.listeners.ExtentReportListener" />
-<!--  		<listener class-name = "com.qa.hubspot.listeners.TestAllureListener" /> -->
+	  		<listener class-name = "com.qa.automationpractice.listeners.ExtentReportListener" />
+<!--  		<listener class-name = "com.qa.automationpractice.listeners.TestAllureListener" /> -->
  	</listeners>
  
  	 <test name="Functional Regression Test">
@@ -17,8 +17,8 @@
  	 	
     	<classes>
     
-   		    <class name="com.qa.hubspot.tests.LoginPageTest"/>
-      		<class name="com.qa.hubspot.tests.HomePageTest"/>
+   		    <class name="com.qa.automationpractice.tests.LoginPageTest"/>
+      		<class name="com.qa.automationpractice.tests.HomePageTest"/>
     
        	</classes>
   </test> <!-- Test -->

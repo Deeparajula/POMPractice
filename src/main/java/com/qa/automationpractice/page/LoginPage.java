@@ -17,7 +17,7 @@ public class LoginPage extends BasePage{
 	
 	//1. locators - By
 	By signInLink = By.xpath(".//a[contains(text(),\"Sign in\")]");
-	By emailId = By.id("email111");
+	By emailId = By.id("email");
 	By password = By.id("passwd");
 	By loginButton = By.id("SubmitLogin");
 	By forgotPasswordLink = By.xpath(".//a[contains(text(),\"Forgot your password?\")]");
